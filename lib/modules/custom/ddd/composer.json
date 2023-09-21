@@ -1,0 +1,9 @@
+{
+    "name": "drupal/ddd",
+    "description": "Provides domain driven design into drupal framework.",
+    "type": "drupal-custom-module",
+    "keywords": [
+        "Drupal",
+        "DDD"
+    ]
+}

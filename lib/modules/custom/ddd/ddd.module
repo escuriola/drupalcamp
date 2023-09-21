@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\Core\TempStore\PrivateTempStoreFactory;
+
+
+/**
+ * Implements hook_entity_presave().
+ */
+function __ddd_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if( $entity->isNew() && $entity->getEntityTypeId() == 'node' ) {
+    /** @var \Drupal\Core\TempStore\PrivateTempStore $store */
+    $store = \Drupal::service('tempstore.private')->get('ddd');
+    $value = $store->get('custom_id');
+    $store->delete('custom_id');
+
+    if ( is_numeric( $value ) ) {
+      $entity->set('nid', $value);
+
+    }
+  }
+}

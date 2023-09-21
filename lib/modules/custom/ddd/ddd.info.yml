@@ -1,0 +1,4 @@
+name: DDD
+description: Provides domain driven design into drupal framework.
+type: module
+core_version_requirement: ^9.5 || ^10

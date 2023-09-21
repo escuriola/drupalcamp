@@ -1,0 +1,10 @@
+ddd_room.create:
+  path: '/api/room'
+  methods:  [POST]
+  defaults:
+    _controller: '\drupalcamp\Infrastructure\Drupal\Adapter\Room\RoomCreateController::execute'
+    _description: 'Create drupal camp room'
+    _title: 'Create drupalcamp room'
+
+  requirements:
+    _access: 'TRUE'

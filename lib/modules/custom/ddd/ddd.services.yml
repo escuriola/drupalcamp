@@ -1,0 +1,18 @@
+services:
+  room.create_service:
+    class: drupalcamp\Application\Room\Create\RoomCreateService
+    arguments: ['@room.drupal_repository']
+    autowire: true
+  room.drupal_repository:
+    class: drupalcamp\Infrastructure\Drupal\Domain\Model\Room\DrupalRoomRepository
+    autowire: true
+  paper.submitpapers_service:
+    class: drupalcamp\Application\Paper\PapersSubmission\PapersSubmissionService
+    arguments: ['@speaker.drupal_repository','@paper.drupal_repository']
+    autowire: true
+  speaker.drupal_repository:
+    class: drupalcamp\Infrastructure\Drupal\Domain\Model\Speaker\DrupalSpeakerRepository
+    autowire: true
+  paper.drupal_repository:
+    class: drupalcamp\Infrastructure\Drupal\Domain\Model\Paper\DrupalPaperRepository
+    autowire: true
