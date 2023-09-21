@@ -97,11 +97,5 @@
             "openeuropa/composer-artifacts": true,
             "phpstan/extension-installer": true
         }
-    },
-    "autoload": {
-        "psr-4": {
-            "drupalcamp\\": "./app/bounded_context/drupalcamp/src",
-            "drupalcamp\\Tests\\": "./app/bounded_context/drupalcamp/tests"
-        }
     }
 }
