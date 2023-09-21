@@ -1,0 +1,64 @@
+version: '2'
+services:
+  web:
+    image: registry.fpfis.eu/fpfis/httpd-php:8.1-dev
+    working_dir: ${PWD}
+    ports:
+      - 8080:8080
+    volumes:
+      - ${PWD}:${PWD} # Non Mac users.
+      # - nfsmount:${PWD} # Mac Users with the nfsmount volume.
+    environment:
+      DOCUMENT_ROOT: ${PWD}
+      VIRTUAL_HOST: localhost:8080
+      # NEXTCLOUD CREDENTIALS
+      ENV: "development"
+      # XDEBUG CONFIGURATION
+      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9003 remote_enable=1
+      PHP_IDE_CONFIG: "serverName=Docker"
+      # For Xdebug setup, run this command in the terminal:
+      # For Mac users: sudo ifconfig en0 alias 10.254.254.254 255.255.255.0
+      # For Linux users: sudo ip addr add 10.254.254.254/32 dev lo label lo:1
+    env_file:
+      - .env
+
+  mysql:
+    image: mariadb:10.11.2
+    command: --innodb-log-file_size=2G --max-allowed-packet=1G --innodb-buffer-pool-size=512M --wait-timeout=31536000
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - mysql:/var/lib/mysql
+
+  # Spawn a Selenium server which also includes a VNC server on localhost:5900 (the password is "secret")
+  selenium:
+    image: selenium/standalone-chrome:4.1.3-20220405
+    volumes:
+      - /dev/shm:/dev/shm
+    shm_size: '2gb'
+    environment:
+      - DISPLAY=:99
+    expose:
+      - 4444
+
+  solr:
+    image: solr:8.11
+    ports:
+      - "8983:8983"
+    volumes:
+      - ./resources/solr/conf:/opt/solr-8.11.2/server/solr/configsets/drupal/conf
+    command: bash -c "docker-entrypoint.sh solr start -c; solr create -c ${SEARCH_API_SERVER_SS_SOLR_CORE} -d server/solr/configsets/drupal/conf -n ${SEARCH_API_SERVER_SS_SOLR_CORE}; solr restart -c -f"
+    env_file:
+      - .env
+
+volumes:
+  mysql:
+
+  # Mac users: uncomment the "nfsmount" key to enable the NFS file sharing.
+  # @see https://github.com/openeuropa/documentation/blob/master/docs/development/tooling.md#using-docker-on-macos
+  # nfsmount:
+  #   driver: local
+  #   driver_opts:
+  #     type: nfs
+  #     o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+  #     device: ":${PWD}/"

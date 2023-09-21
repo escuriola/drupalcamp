@@ -1,0 +1,107 @@
+{
+    "name": "escuriola/drupalcamp",
+    "description": "DDD Escuriola Project",
+    "type": "project",
+    "license": "EUPL-1.2",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1",
+        "composer/installers": "^1.12",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/core": "^10.1",
+        "drupal/core-composer-scaffold": "^10",
+        "drupal/ddd": "dev-main",
+        "drupal/devel": "^5.1",
+        "drupal/http_client_manager": "^9.3",
+        "drupal/pathauto": "^1.10",
+        "drupal/search_api": "^1.28",
+        "drupal/search_api_autocomplete": "^1.7",
+        "drupal/search_api_solr": "^4.2",
+        "drupal/search_api_sorts": "^1.1",
+        "drupal/twig_tweak": "^3.2",
+        "drush/drush": "^11.3",
+        "ramsey/uuid": "^4.7"
+    },
+    "require-dev": {
+        "drupal/core-dev": "^10.1",
+        "drupal/drupal-extension": "^5.0",
+        "drupal/environment_indicator": "^4.0",
+        "kint-php/kint": "^5.0",
+        "phpspec/prophecy-phpunit": "^1 || ^2"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "path",
+            "url": "lib/modules/custom/*"
+        }
+
+    ],
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+              "web-root": "./web"
+            }
+        },
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "_readme": [
+            "Explicit requirement of drupal/inline_entity_form module due to incompatibility of path in RC12."
+        ]
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp": true,
+            "cweagans/composer-patches": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/console-extend-plugin": true,
+            "openeuropa/composer-artifacts": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "drupalcamp\\": "./app/bounded_context/drupalcamp/src",
+            "drupalcamp\\Tests\\": "./app/bounded_context/drupalcamp/tests"
+        }
+    }
+}
