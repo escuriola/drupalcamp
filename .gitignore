@@ -17,7 +17,6 @@
 *.sql
 *.gz
 .editorconfig
-/phpunit.xml
 /old
 /hooks
 /docker

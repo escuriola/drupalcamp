@@ -1,0 +1,27 @@
+uuid: f293b545-5cf9-4db3-a174-fc9fc9fdc132
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.dc_room.field_room_address
+    - field.field.node.dc_room.field_room_building
+    - field.field.node.dc_room.field_room_floor
+    - node.type.dc_room
+  module:
+    - user
+id: node.dc_room.teaser
+targetEntityType: node
+bundle: dc_room
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_room_address: true
+  field_room_building: true
+  field_room_floor: true
+  langcode: true

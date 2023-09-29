@@ -1,0 +1,19 @@
+uuid: bf38ea11-b150-4593-aed0-e0acf4ad9666
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_room_building
+    - node.type.dc_room
+id: node.dc_room.field_room_building
+field_name: field_room_building
+entity_type: node
+bundle: dc_room
+label: Building
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

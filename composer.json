@@ -14,7 +14,6 @@
         "drupal/ddd": "dev-main",
         "drupal/devel": "^5.1",
         "drupal/http_client_manager": "^9.3",
-        "drupal/object_log": "^1.1",
         "drupal/pathauto": "^1.10",
         "drupal/search_api": "^1.28",
         "drupal/search_api_autocomplete": "^1.7",

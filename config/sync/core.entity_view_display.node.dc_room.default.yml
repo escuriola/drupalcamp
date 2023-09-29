@@ -1,0 +1,48 @@
+uuid: b361719d-bc9b-4318-b63a-e7fe459c88bf
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.dc_room.field_room_address
+    - field.field.node.dc_room.field_room_building
+    - field.field.node.dc_room.field_room_floor
+    - node.type.dc_room
+  module:
+    - user
+id: node.dc_room.default
+targetEntityType: node
+bundle: dc_room
+mode: default
+content:
+  field_room_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_room_building:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_room_floor:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

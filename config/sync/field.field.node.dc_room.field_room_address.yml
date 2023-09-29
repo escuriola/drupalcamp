@@ -1,0 +1,19 @@
+uuid: 8de50e9c-d492-42fc-89bc-59c52ba13315
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_room_address
+    - node.type.dc_room
+id: node.dc_room.field_room_address
+field_name: field_room_address
+entity_type: node
+bundle: dc_room
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

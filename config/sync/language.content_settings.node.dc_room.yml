@@ -1,0 +1,11 @@
+uuid: c557166b-4114-42f6-a8ec-8a0cc42bc9f4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.dc_room
+id: node.dc_room
+target_entity_type_id: node
+target_bundle: dc_room
+default_langcode: site_default
+language_alterable: false

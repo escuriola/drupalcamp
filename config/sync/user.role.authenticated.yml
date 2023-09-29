@@ -1,0 +1,33 @@
+uuid: 33c14516-d5fe-482a-9b60-c3d5234aa16e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - node.type.dc_room
+  module:
+    - comment
+    - contact
+    - file
+    - filter
+    - node
+    - search
+    - shortcut
+    - system
+_core:
+  default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'create dc_room content'
+  - 'delete own files'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format basic_html'
