@@ -3,8 +3,35 @@ ddd_room.create:
   methods:  [POST]
   defaults:
     _controller: '\drupalcamp\Infrastructure\Drupal\Adapter\Room\RoomCreateController::execute'
-    _description: 'Create drupal camp room'
+    _description: 'Create drupalcamp room'
     _title: 'Create drupalcamp room'
+
+  requirements:
+    _access: 'TRUE'
+
+ddd_room.update_name:
+  path: '/api/room/update/{roomId}'
+  methods:  [PUT]
+  defaults:
+    _controller: '\drupalcamp\Infrastructure\Drupal\Adapter\Room\RoomUpdateNameController::execute'
+    _description: 'Update drupalcamp room name'
+    _title: 'Update drupalcamp room name'
+
+  requirements:
+    _access: 'TRUE'
+
+  options:
+    parameters:
+      roomId:
+        type: entity:dc_room
+
+ddd_room.list:
+  path: '/api/room'
+  methods:  [GET]
+  defaults:
+    _controller: '\drupalcamp\Infrastructure\Drupal\Adapter\Room\RoomListController::execute'
+    _description: 'List drupalcamp rooms'
+    _title: 'List drupalcamp rooms'
 
   requirements:
     _access: 'TRUE'

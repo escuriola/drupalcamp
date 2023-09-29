@@ -1,0 +1,16 @@
+### Create a Room
+POST http://localhost:8844/web/api/room
+Content-Type: application/json
+
+{
+  "name": "NTT Data",
+  "building": "ETSI",
+  "address": "Reina Mercedes",
+  "floor": 3
+}
+
+### Update Room name
+PUT http://localhost:8844/web/api/room/update/Hiberus/?new_name=1xInternet
+
+### Get Room List
+GET http://localhost:8844/web/api/room?fields=name,building,address

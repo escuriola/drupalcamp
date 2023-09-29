@@ -11,7 +11,6 @@ services:
     environment:
       DOCUMENT_ROOT: ${PWD}
       VIRTUAL_HOST: localhost:8080
-      # NEXTCLOUD CREDENTIALS
       ENV: "development"
       # XDEBUG CONFIGURATION
       XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9003 remote_enable=1
