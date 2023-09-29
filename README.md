@@ -10,7 +10,7 @@ En la presentación he añadido slides con un poco más de explicación acerca d
 
 El código está estructurado siguiendo las directrices de la arquitectura hexagonal.
 
-Dentro de la carpeta app está el bounded countext "drupalcamp" que incluye el Dominio, los casos de uso y la infraestructura.
+Dentro de la carpeta app está el bounded context "drupalcamp" que incluye el Dominio, los casos de uso y la infraestructura.
 
 También se incluye un módulo llamado ddd donde están el routing y el services necesarios para que funcione la aplicación
 
@@ -18,4 +18,20 @@ Se irán añadiendo entidades y casos hasta completar algo funcional, así como 
 
 Se acepta feedback y sugerencias
 
+##API
+### Create a Room
+POST http://localhost:8844/web/api/room
+{
+"name": "NTT Data",
+"building": "ETSI",
+"address": "Reina Mercedes",
+"floor": 3
+}
 
+### Update Room name
+PUT /api/room/update/Hiberus/?new_name=1xInternet
+
+### Get Room List
+GET /api/room?fields=name,building,address
+
+Ver fichero drupalcamp.http para más información.
