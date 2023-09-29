@@ -16,8 +16,6 @@ También se incluye un módulo llamado ddd donde están el routing y el services
 
 Se irán añadiendo entidades y casos hasta completar algo funcional, así como un front desacoplado en javascript.
 
-Se acepta feedback y sugerencias aunque hay que tener en cuenta que el objetivo de la charla y de este repo es que
-se vea que, si el proyecto lo requiere y tiene una lógica de negocio compleja, es posible aun usando drupal
-organizar el código de forma que sea más estructurado y que la lógica de negocio no se encuentre drupalizada en medio
-del código de drupal.
+Se acepta feedback y sugerencias
+
 
